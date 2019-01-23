@@ -15,7 +15,7 @@
 int		ft_strlchr(char *s, int c)
 {
 	int		pos;
-	
+
 	pos = 0;
 	while (s[pos])
 	{
