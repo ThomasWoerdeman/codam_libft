@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strtrim.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: twoerdem <marvin@codam.nl>                   +#+                     */
+/*   By: twoerdem <twoerdem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/14 15:05:11 by twoerdem      #+#    #+#                 */
-/*   Updated: 2019/01/14 15:05:12 by twoerdem      ########   odam.nl         */
+/*   Created: 2019/01/14 15:05:11 by twoerdem       #+#    #+#                */
+/*   Updated: 2019/03/06 13:33:21 by twoerdem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 static size_t	count_right(char const *s)
 {
-	size_t	cnt;
+	size_t	i;
 
-	cnt = 0;
-	while (s[cnt] == ' ' || s[cnt] == '\n' || s[cnt] == '\t')
-		cnt++;
-	return (cnt);
+	i = 0;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	return (i);
 }
 
 static size_t	count_left(char const *s)
 {
-	int		cnt;
+	int		i;
 
-	cnt = ft_strlen(s) - 1;
-	while (s[cnt] == ' ' || s[cnt] == '\n' || s[cnt] == '\t')
-		cnt--;
-	return (cnt);
+	i = ft_strlen(s) - 1;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i--;
+	return (i);
 }
 
 char			*ft_strtrim(char const *s)
@@ -44,7 +44,10 @@ char			*ft_strtrim(char const *s)
 	left = count_left(s) - right + 1;
 	ret = ft_strsub(s, right, left);
 	if (left < right)
-		return ("");
+	{
+		ret = ft_strdup("");
+		return (ret);
+	}
 	if (ret == NULL)
 		return (NULL);
 	return (ret);

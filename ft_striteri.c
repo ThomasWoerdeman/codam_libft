@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_striteri.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: twoerdem <marvin@codam.nl>                   +#+                     */
+/*   By: twoerdem <twoerdem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/14 12:42:22 by twoerdem      #+#    #+#                 */
-/*   Updated: 2019/01/14 12:42:23 by twoerdem      ########   odam.nl         */
+/*   Created: 2019/01/14 12:42:22 by twoerdem       #+#    #+#                */
+/*   Updated: 2019/03/06 13:25:21 by twoerdem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int	cnt;
+	unsigned int	i;
 
-	cnt = 0;
-	if (s)
+	i = 0;
+	if (s && *s && f)
 	{
-		while (s[cnt])
+		while (s[i])
 		{
-			f(cnt, s + cnt);
-			cnt++;
+			f(i, s + i);
+			i++;
 		}
 	}
 }
