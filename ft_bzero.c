@@ -6,7 +6,7 @@
 /*   By: twoerdem <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/12 14:25:54 by twoerdem      #+#    #+#                 */
-/*   Updated: 2019/01/12 14:25:55 by twoerdem      ########   odam.nl         */
+/*   Updated: 2020/05/12 14:35:35 by twoerdem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*tmp;
+	size_t	index;
 
-	tmp = s;
-	while (n)
+	index = 0;
+	while (index < n)
 	{
-		n--;
-		*tmp++ = '\0';
+		((char *)s)[index] = 0;
+		index++;
 	}
 }
