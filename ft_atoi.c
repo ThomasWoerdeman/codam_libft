@@ -6,7 +6,7 @@
 /*   By: twoerdem <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 08:47:24 by twoerdem      #+#    #+#                 */
-/*   Updated: 2019/01/11 08:47:26 by twoerdem      ########   odam.nl         */
+/*   Updated: 2020/05/12 14:33:18 by twoerdem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 
 int		ft_atoi(const char *str)
 {
-	int				cnt;
 	int				sign;
-	int				res;
+	int				result;
 
-	cnt = 0;
 	sign = 1;
-	res = 0;
-	while (str[cnt] == ' ' || str[cnt] == '\t' || str[cnt] == '\n'
-		|| str[cnt] == '\v' || str[cnt] == '\f' || str[cnt] == '\r')
-		cnt++;
-	if (str[cnt] == '-' || str[cnt] == '+')
+	result = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[cnt] == '-')
+		if (*str == '-')
 			sign = -1;
-		cnt++;
+		str++;
 	}
-	while (str[cnt] >= '0' && str[cnt] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		res = (res * 10) + (str[cnt] - '0');
-		cnt++;
+		result = (result * 10) + (*str - '0');
+		str++;
 	}
-	return (sign * res);
+	return (sign * result);
 }
